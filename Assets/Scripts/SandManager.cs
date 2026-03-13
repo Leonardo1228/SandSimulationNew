@@ -1,19 +1,19 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class GameManager : MonoBehaviour
+public class SandManager : MonoBehaviour
 {
     [Header("Grid Settings")]
-    public int width = 50;
-    public int height = 30;
-    public float updateTime;
-    public GameObject SandPrefab;
+    public int width;//Cualquier variable que deseas
+    public int height;//Cualquier variable que deseas
+    public float updateTime;//Velocidad de la simulacion
+    public GameObject SandPrefab;//Prefab de particula de arena
 
     private bool[,] grid;
     private bool[,] nextGrid;
     private GameObject[,] SandObjects;
 
-    private float timer;
+    private float timer;//Para aplicar con DeltaTime
 
     void Start()
     {
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void CreateFloor()
+    void CreateFloor()//Para colision de cada de arena fuera del limite del Grid en Y+9-
     {
         for (int x = 0; x < width; x++)
         {
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void CreateWalls()
+    void CreateWalls()//Para muros limite fuera del Grid en X
     {
         for (int y = 0; y < height; y++)
         {
